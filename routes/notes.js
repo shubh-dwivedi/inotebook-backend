@@ -4,15 +4,6 @@ const fetchuser  = require("../middleware/fetchuser");
 const Note = require("../models/Note");
 const { body, validationResult } = require("express-validator");
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-  });
-
 // ROUTE 1: Fetch all notes of a user using: GET "/api/notes/fetchallnotes" . Login required
 router.get('/fetchallnotes', fetchuser, async (req,res)=> {
     try {
