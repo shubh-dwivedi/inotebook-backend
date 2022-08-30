@@ -4,8 +4,8 @@ const JWT_SECRET = "shubhamisagoodb$oy";
 const fetchuser = (req, res, next) => {
     const token = req.header('auth-token');
     if(!token) {
-        console.log("invalid token");
-        // res.status(401).send({error: "Please provide a token to get authorised access"});
+        console.log(req.header);
+        res.status(401).send({error: "Please provide a token to get authorised"});
     } else {
         try {
             const data = jwt.verify(token, JWT_SECRET);
