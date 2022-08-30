@@ -4,7 +4,7 @@ const JWT_SECRET = "shubhamisagoodb$oy";
 const fetchuser = (req, res, next) => {
     const token = req.header('auth-token');
     if(!token) {
-        console.log(req.header);
+        console.log(JSON.stringify(req.headers));
         res.status(401).send({error: "Please provide a token to get authorised"});
     } else {
         try {
