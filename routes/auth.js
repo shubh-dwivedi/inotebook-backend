@@ -48,7 +48,9 @@ router.post(
       };
       const authToken = jwt.sign(data, JWT_SECRET);
       success = true;
-      res.json({ success, authToken });
+      let name = req.body.name;
+      let email = req.body.email;
+      res.json({ success, authToken, name, email});
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server Error");
@@ -86,7 +88,9 @@ router.post(
       };
       const authToken = jwt.sign(data, JWT_SECRET);
       success = true;
-      res.json({ success , authToken });
+      let name = req.body.name;
+      let email = req.body.email;
+      res.json({ success , authToken, name, email });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server Error");
