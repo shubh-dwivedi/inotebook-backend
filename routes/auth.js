@@ -88,8 +88,7 @@ router.post(
       };
       const authToken = jwt.sign(data, JWT_SECRET);
       success = true;
-      let name = req.body.name;
-      let email = req.body.email;
+      let name = user.name;
       res.json({ success , authToken, name, email });
     } catch (error) {
       console.error(error.message);
