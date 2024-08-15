@@ -31,8 +31,12 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "Sorry! A user with this email already exists" });
+          .json({ 
+            success: false,
+            error: "Sorry! A user with this email already exists",
+           });
       }
+
       //if user email is unique create a user entry in the database and send a response json message back to the user
       const salt = await bcrypt.genSalt(10);
       let secPass = await bcrypt.hash(req.body.password, salt);

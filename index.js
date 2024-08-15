@@ -20,6 +20,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get("/", (req,res)=> {
+  res.send("Hello User!");
+})
+
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
